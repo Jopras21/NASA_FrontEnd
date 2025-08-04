@@ -61,7 +61,7 @@ export default function Home() {
           <ambientLight intensity={0.3} />
           <pointLight position={[0, 0, 0]} intensity={2} />
           <Stars radius={200} depth={100} count={8000} factor={7} fade />
-          <Sun texturePath="/textures/sun.jpg" />
+          <Sun texturePath="/textures/sun.png" />
           <Planet texturePath="/textures/earth.jpg" size={1.2} distance={8} rotationSpeed={0.5} revolutionSpeed={0.2} />
           <Planet texturePath="/textures/mars.jpg" size={0.8} distance={12} rotationSpeed={0.4} revolutionSpeed={0.15} />
           <Planet texturePath="/textures/venus.jpg" size={1.0} distance={6} rotationSpeed={0.6} revolutionSpeed={0.3} />
