@@ -13,7 +13,7 @@ export default function Footer() {
           />
           <h3 className="text-white font-semibold text-lg mb-2">Space Explorer Initiative</h3>
           <p className="text-sm text-gray-400">
-            Inspiring new gen to explore the outer space via technology, Education, and simulation.
+            Inspiring new gen to explore the outer space via technology, Education, and simulation. pb-3
           </p>
         </div>
 
@@ -30,9 +30,9 @@ export default function Footer() {
 
         <div className="flex flex-col items-center md:items-start">
           <h4 className="text-white font-semibold mb-4">Contact</h4>
-          <p className="text-sm">📍 Location: somewhere in this earth</p>
-          <p className="text-sm">✉️ Email: support@nasa.org</p>
-          <p className="text-sm">🌐 Website: www.nasa.org</p>
+          <p className="text-sm pb-3">📍 Location: somewhere in this earth</p>
+          <p className="text-sm pb-3">✉️ Email: support@nasa.org</p>
+          <p className="text-sm pb-3">🌐 Website: www.nasa.org</p>
         </div>
       </div>
 
