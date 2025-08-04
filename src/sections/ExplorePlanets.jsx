@@ -7,7 +7,7 @@ export default function ExplorePlanets() {
   return (
     <section className="min-h-screen py-16 px-6 bg-gradient-to-b from-black to-gray-900">
       <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-8">Explore Planets</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-24">
         {planets.map((name, i) => (
           <motion.div
             key={i}

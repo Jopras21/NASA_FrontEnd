@@ -5,7 +5,7 @@ export default function Navigation() {
   return (
     <nav className="bg-black/80 backdrop-blur-md px-6 py-4 flex justify-between items-center sticky top-0 z-50">
       <div className="flex items-center gap-3">
-        <img src={logo} alt="Logo" className="w-10 h-10" />
+        <img src={logo} alt="Logo" className="w-auto h-10" />
         <h1 className="text-xl font-bold">Astroverse</h1>
       </div>
       <ul className="flex gap-6 text-sm md:text-base">
