@@ -1,20 +1,21 @@
-import React from 'react'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import AboutSpace from './sections/AboutSpace'
-import ExplorePlanets from './sections/ExplorePlanets'
-import Missions from './sections/Missions'
-import Footer from './components/Footer'
+import { Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import Home from './pages/Home';
+import Planetarium from './pages/Planetarium.jsx';
+import Exploration from './pages/Exploration';
+import Gallery from './pages/Gallery';
+import About from './pages/About';
 
 export default function App() {
   return (
-    <div className="bg-black text-white font-sans overflow-x-hidden">
-      <Navbar />
-      <Hero />
-      <AboutSpace />
-      <ExplorePlanets />
-      <Missions />
-      <Footer />
-    </div>
-  )
+    <Layout>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/planetarium" element={<Planetarium />} />
+        <Route path="/exploration" element={<Exploration />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </Layout>
+  );
 }
