@@ -54,8 +54,7 @@ function MouseOrbitController() {
 
 export default function Home() {
   return (
-    <div className="relative w-full h-screen overflow-y-auto scroll-smooth bg-black text-white">
-      {/* 3D Canvas Fullscreen */}
+    <div className="relative w-full h-screen overflow-x-hidden scroll-smooth bg-black text-white">
       <div className="min-h-screen absolute inset-0 z-0">
         <Canvas camera={{ position: [0, 0, 30], fov: 60 }}>
           <ambientLight intensity={0.3} />

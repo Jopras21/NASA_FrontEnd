@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.7",
     "@react-three/drei": "^10.6.1",
     "@react-three/fiber": "^9.3.0",
     "@react-three/postprocessing": "^3.0.4",
@@ -17,6 +18,8 @@
     "framer-motion": "^12.23.12",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-lazy-load-image-component": "^1.6.3",
+    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^7.7.1",
     "three": "^0.179.1"
   },

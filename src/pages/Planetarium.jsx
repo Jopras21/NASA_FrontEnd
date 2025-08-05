@@ -101,70 +101,68 @@ function PlanetariumScene() {
         />
         <MilkyWay />
 
-        {/* Matahari */}
         <mesh>
           <sphereGeometry args={[5, 64, 64]} />
           <meshStandardMaterial emissive="yellow" emissiveIntensity={4} />
         </mesh>
 
-        {/* Planet-planet */}
         <Planet
           texturePath="/textures/mercury.jpg"
           size={1}
           distance={12}
-          rotationSpeed={2}
-          revolutionSpeed={4}
+          rotationSpeed={1}
+          revolutionSpeed={2}
         />
         <Planet
           texturePath="/textures/venus.jpg"
           size={1.5}
           distance={18}
-          rotationSpeed={1.5}
-          revolutionSpeed={3}
+          rotationSpeed={1}
+          revolutionSpeed={1.5}
         />
         <Planet
           texturePath="/textures/earth.jpg"
           size={2}
           distance={25}
-          rotationSpeed={2.5}
-          revolutionSpeed={2.2}
+          rotationSpeed={1.5}
+          revolutionSpeed={1.2}
         />
         <Planet
           texturePath="/textures/mars.jpg"
           size={1.4}
           distance={32}
-          rotationSpeed={2}
-          revolutionSpeed={1.8}
+          rotationSpeed={1}
+          revolutionSpeed={0.9}
         />
         <Planet
           texturePath="/textures/jupiter.jpg"
           size={3.5}
           distance={45}
-          rotationSpeed={3}
-          revolutionSpeed={1.3}
+          rotationSpeed={1.5}
+          revolutionSpeed={0.7}
         />
         <Planet
           texturePath="/textures/saturn.jpg"
           size={3}
           distance={60}
-          rotationSpeed={2.7}
-          revolutionSpeed={1.1}
+          rotationSpeed={1.4}
+          revolutionSpeed={1}
           ringTexturePath="/textures/saturnring.png"
         />
         <Planet
           texturePath="/textures/uranus.jpg"
           size={2.4}
           distance={75}
-          rotationSpeed={2.2}
-          revolutionSpeed={0.9}
+          rotationSpeed={1.1}
+          revolutionSpeed={0.5}
           ringTexturePath="/textures/uranusring.png"
         />
         <Planet
           texturePath="/textures/neptune.jpg"
           size={2.2}
           distance={90}
-          rotationSpeed={2}
-          revolutionSpeed={0.7}
+          rotationSpeed={1}
+          revolutionSpeed={0.4}
         />
 
         <OrbitControls
@@ -181,7 +179,7 @@ function PlanetariumScene() {
       </Suspense>
       <EffectComposer>
         <Bloom
-          intensity={1.0}
+          intensity={0.3}
           luminanceThreshold={0.2}
           luminanceSmoothing={0.9}
         />
@@ -192,13 +190,13 @@ function PlanetariumScene() {
 
 export default function Planetarium() {
   return (
-    <section className="w-full min-h-screen bg-black text-white py-10 px-4">
-      <div className="w-full absolute z-50 mx-auto">
+    <section className="w-full min-h-full bg-black text-white">
+      <div className="w-full absolute z-50 mx-auto mt-18">
         <h2 className="text-4xl font-bold mb-6 text-center">Planetarium</h2>
-        <p className="max-w-3xl mx-auto text-center mb-12 text-gray-400">
-          Jelajahi sistem tata surya 3D interaktif — dari Matahari hingga
-          Neptunus, dengan orbit dinamis, rotasi realistis, dan pemandangan
-          galaksi. Zoom, drag, dan tilt semesta ini dengan kendali penuh.
+        <p className="max-w-3xl mx-auto text-center text-gray-400">
+          Explore an interactive 3D solar system—from the Sun to Neptune, with
+          dynamic orbits, realistic rotation, and galactic views. Zoom, drag,
+          and tilt this universe with complete control.
         </p>
       </div>
       <div className="w-full h-[800px] rounded-2xl overflow-hidden">
