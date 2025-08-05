@@ -1,131 +1,186 @@
-import React, { useState } from 'react';
-import { Dialog } from '@headlessui/react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import Footer from '../components/Footer';
 
 const contentItems = [
   {
     id: 1,
     title: 'Apollo 11',
-    image: '/images/apollo11.jpg',
-    description: 'Misi bersejarah membawa manusia pertama ke bulan pada tahun 1969 oleh NASA.'
+    image: '/public/apollo11.png',
+    description:
+      'A historic mission that brought the first humans to the Moon in 1969 by NASA.',
   },
   {
     id: 2,
     title: 'Voyager',
-    image: '/images/voyager.jpg',
-    description: 'Misi luar angkasa tanpa awak pertama yang keluar dari tata surya dan mengirimkan data dari ruang antar bintang.'
+    image: '/public/voyager.png',
+    description:
+      'The first unmanned spacecraft to exit the solar system and send back data from interstellar space.',
   },
   {
     id: 3,
     title: 'James Webb Telescope',
-    image: '/images/jwst.jpg',
-    description: 'Teleskop luar angkasa tercanggih untuk melihat galaksi yang jauh dan masa awal alam semesta.'
+    image: '/public/jwst.png',
+    description:
+      'The most advanced space telescope to observe distant galaxies and the early universe.',
   },
   {
     id: 4,
     title: 'Curiosity Rover',
-    image: '/images/curiosity.jpg',
-    description: 'Eksplorasi permukaan Mars untuk mencari tanda-tanda kehidupan mikroba.'
+    image: '/public/curiosity.png',
+    description:
+      'Exploring the surface of Mars to search for signs of microbial life.',
   },
   {
     id: 5,
     title: 'Perseverance Rover',
-    image: '/images/perseverance.jpg',
-    description: 'Misi terbaru NASA ke Mars dengan tujuan membawa sampel kembali ke Bumi.'
+    image: '/public/perseverance.png',
+    description:
+      'NASA’s latest Mars mission aiming to collect samples to return to Earth.',
   },
   {
     id: 6,
     title: 'ISS',
-    image: '/images/iss.jpg',
-    description: 'Stasiun luar angkasa internasional sebagai laboratorium luar angkasa yang mengorbit Bumi.'
+    image: '/public/iss.png',
+    description:
+      'The International Space Station, a space lab orbiting Earth used for scientific research.',
   },
   {
     id: 7,
     title: 'New Horizons',
-    image: '/images/newhorizons.jpg',
-    description: 'Misi ke Pluto dan sabuk Kuiper yang memperluas pemahaman kita tentang tata surya luar.'
+    image: '/public/horizons.png',
+    description:
+      'A mission to Pluto and the Kuiper Belt to expand our understanding of the outer solar system.',
   },
   {
     id: 8,
     title: 'Artemis I',
-    image: '/images/artemis1.jpg',
-    description: 'Uji coba tanpa awak sebagai langkah menuju kembali ke Bulan dalam misi Artemis NASA.'
+    image: '/public/artemis1.png',
+    description:
+      'An uncrewed test flight as part of NASA’s Artemis mission to return humans to the Moon.',
   },
   {
     id: 9,
     title: 'Kepler Telescope',
-    image: '/images/kepler.jpg',
-    description: 'Misi teleskop luar angkasa untuk menemukan planet-planet mirip Bumi di luar tata surya.'
+    image: '/public/kepler.png',
+    description:
+      'A space telescope mission to discover Earth-like exoplanets beyond our solar system.',
   },
   {
     id: 10,
     title: 'SpaceX Starship',
-    image: '/images/starship.jpg',
-    description: 'Kendaraan luar angkasa generasi berikutnya yang dikembangkan oleh SpaceX untuk misi Mars dan lebih jauh lagi.'
+    image: '/public/starship.png',
+    description:
+      'The next-generation spacecraft developed by SpaceX for Mars and deep space missions.',
   },
 ];
 
 export default function Exploration() {
-  const [selected, setSelected] = useState(null);
+  const scrollToSection = (id) => {
+    const el = document.getElementById(`section-${id}`);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   return (
-    <section className="min-h-screen bg-cover bg-center relative pb-20" style={{ backgroundImage: "url('/images/earth-surface.jpg')" }}>
-      <div className="absolute inset-0 bg-black/70 z-0" />
+    <section
+      className="min-h-screen relative pb-20"
+      style={{
+        backgroundImage: "url('/public/earth.png')",
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+        backgroundSize: 'contain',
+      }}
+    >
+      <div className="relative z-10 pt-10 pb-10 bg-black/60 backdrop-blur-md">
+        <div className="w-full h-[70vh] relative mb-0">
+          <img
+            src={contentItems[0].image}
+            alt={contentItems[0].title}
+            className="object-cover w-full h-full"
+          />
+          <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+            <div className="text-center text-white px-4">
+              <h1 className="text-5xl font-bold mb-4 drop-shadow-lg">
+                {contentItems[0].title}
+              </h1>
+              <p className="text-xl max-w-3xl mx-auto drop-shadow-md">
+                {contentItems[0].description}
+              </p>
+            </div>
+          </div>
+        </div>
 
-      <div className="relative z-10 pt-10">
         <Carousel
           showThumbs={false}
           infiniteLoop
           autoPlay
-          interval={5000}
+          interval={4000}
           showStatus={false}
-          className="w-full md:w-3/4 mx-auto mb-10"
+          transitionTime={800}
+          swipeable
+          emulateTouch
+          className="w-full md:w-3/4 mx-auto my-16"
         >
-          {contentItems.slice(0, 5).map(item => (
-            <div key={item.id}>
-              <img src={item.image} alt={item.title} width={800} height={400} className="rounded-xl mx-auto" />
+          {contentItems.slice(1, 6).map((item) => (
+            <div
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className="cursor-pointer"
+            >
+              <img
+                src={item.image}
+                alt={item.title}
+                className="rounded-xl mx-auto"
+              />
               <p className="legend text-xl font-semibold">{item.title}</p>
             </div>
           ))}
         </Carousel>
 
-        <motion.h2 
+        <motion.h2
           className="text-4xl font-bold text-white mb-10 text-center"
-          initial={{ opacity: 0, y: -30 }} 
-          animate={{ opacity: 1, y: 0 }} 
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           Exploration Missions
         </motion.h2>
 
-        <div className="space-y-20">
+        <div className="space-y-12 px-6 md:px-20">
           {contentItems.map((item, i) => (
             <motion.div
               key={item.id}
               id={`section-${item.id}`}
-              className={`md:flex items-center gap-10 px-6 py-10 bg-white/10 rounded-xl shadow-xl backdrop-blur-lg ${i % 3 === 0 ? 'md:flex-row-reverse' : i % 3 === 1 ? 'md:flex-row' : 'md:flex-col'}`}
+              className={`flex flex-col md:flex-row ${
+                i % 2 !== 0 ? 'md:flex-row-reverse' : ''
+              } items-center gap-10 bg-white/10 p-8 rounded-xl shadow-xl backdrop-blur-xl`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <img 
-                src={item.image} 
-                alt={item.title} 
-                width={600} 
-                height={400} 
-                className="rounded-lg mx-auto mb-6 md:mb-0" 
+              <img
+                src={item.image}
+                alt={item.title}
+                className="rounded-lg w-full md:w-[50%]"
               />
-              <div className="text-white text-lg leading-relaxed text-justify">
-                <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
-                <p>{item.description}</p>
+              <div className="text-white text-left space-y-4">
+                <h3 className="text-3xl font-bold">{item.title}</h3>
+                <p className="text-lg leading-relaxed text-white/90 text-justify">
+                  {item.description}
+                </p>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
+
+      <motion.section>
+        <Footer />
+      </motion.section>
     </section>
   );
 }
